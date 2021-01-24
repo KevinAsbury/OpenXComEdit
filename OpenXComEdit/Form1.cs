@@ -33,10 +33,7 @@ namespace OpenXComEdit
                 .DisableAliases()
                 .Build();
             var yaml = serializer.Serialize(xcSave);
-            rtbOutput.Text = yaml
-                .Replace("\'", "\"")
-                .Replace("difficulty", "---\r\ndifficulty")
-                .Replace("\r\n      ~: ", " ~");
+            rtbOutput.Text = yaml.Replace("difficulty", "---\r\ndifficulty");
         }
     }
 }

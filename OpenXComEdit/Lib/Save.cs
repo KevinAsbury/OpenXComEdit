@@ -18,7 +18,7 @@ namespace OpenXComEdit.Lib
         public string GraphCountryToggles { get; set; }
         public string GraphFinanceToggles { get; set; }
         public ulong Rng { get; set; }
-        public int Funds { get; set; }
+        public List<int> Funds { get; set; }
         public List<int> Maintenance { get; set; }
         public List<int> ResearchScores { get; set; }
         public List<int> Incomes { get; set; }
@@ -36,7 +36,7 @@ namespace OpenXComEdit.Lib
         public List<Soldier>? DeadSoldiers { get; set; }
         public List<MissionStatistics>? MissionStatistics { get; set; }
 
-        public Save(string name, string version, string build, Time time, List<string> mods, int difficulty, int end, int monthsPassed, string graphRegionToggles, string graphCountryToggles, string graphFinanceToggles, ulong rng, int funds, List<int> maintenance, List<int> researchScores, List<int> incomes, List<int> expenditures, bool warned, double globeLon, double globeLat, int globeZoom, Dictionary<string, int> ids, List<Country> countries, List<Region> regions, List<Base> bases, List<AlienMission> alienMissions, AlienStrategy alienStrategy, List<Soldier>? deadSoldiers, List<MissionStatistics>? missionStatistics)
+        public Save(string name, string version, string build, Time time, List<string> mods, int difficulty, int end, int monthsPassed, string graphRegionToggles, string graphCountryToggles, string graphFinanceToggles, ulong rng, List<int> funds, List<int> maintenance, List<int> researchScores, List<int> incomes, List<int> expenditures, bool warned, double globeLon, double globeLat, int globeZoom, Dictionary<string, int> ids, List<Country> countries, List<Region> regions, List<Base> bases, List<AlienMission> alienMissions, AlienStrategy alienStrategy, List<Soldier>? deadSoldiers, List<MissionStatistics>? missionStatistics)
         {
             Name = name;
             Version = version;
@@ -95,7 +95,8 @@ namespace OpenXComEdit.Lib
             GraphCountryToggles = "";
             GraphFinanceToggles = "";
             Rng = Helper.LongRandom();
-            Funds = 4132000;
+            Funds = new List<int>();
+            Funds.Add(4132000);
             Maintenance = new List<int>();
             Maintenance.Add(0);
             ResearchScores = new List<int>();
