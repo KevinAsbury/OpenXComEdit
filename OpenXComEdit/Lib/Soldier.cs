@@ -21,6 +21,7 @@ namespace OpenXComEdit.Lib
         public string Armor { get; set; }
         public int Improvement { get; set; }
         public int PsiStrImprovement { get; set; }
+        public List<Equipment> EquipmentLayout { get; set; }
         public List<ItemType>? EquipmentSlot { get; set; }
         public Death? Death { get; set; }
 
