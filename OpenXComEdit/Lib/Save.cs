@@ -68,13 +68,47 @@ namespace OpenXComEdit.Lib
             MissionStatistics = missionStatistics;
         }
 
+        public Save(string name)
+        {
+            Name = name;
+            Version = "1.0";
+            Build = " git 2021-01-11 02:11";
+            Time = new Time();
+            Mods = new List<string>();
+            Mods.Add("xcom1 ver: 1.0");
+            Difficulty = 0;
+            End = 0;
+            MonthsPassed = 0;
+            GraphRegionToggles = "";
+            GraphCountryToggles = "";
+            GraphFinanceToggles = "";
+            Rng = Helper.LongRandom();
+            Funds = 0;
+            Maintenance = 0;
+            ResearchScores = 0;
+            Incomes = 0;
+            Expenditures = 0;
+            Warned = false;
+            GlobeLon = 0.0;
+            GlobeLat = 0.0;
+            GlobeZoom = 0;
+            Ids = new Dictionary<string, int>();
+            Countries = new List<Country>();
+            Regions = new List<Region>();
+            Bases = new List<Base>();
+            AlienMissions = new List<AlienMission>();
+            AlienStrategy = null;
+            MissionStatistics = null;
+        }
+
         public Save()
         {
             Name = "";
-            Version = "";
-            Build = "";
+            Version = "1.0";
+            Build = " git 2021-01-11 02:11";
             Time = new Time();
             Mods = new List<string>();
+            Mods.Add("xcom1 ver: 1.0");
             Difficulty = 0;
             End = 0;
             MonthsPassed = 0;

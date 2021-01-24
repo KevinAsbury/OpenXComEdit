@@ -23,12 +23,14 @@ namespace OpenXComEdit
         private void btnWriteYAML_Click(object sender, EventArgs e)
         {
             var xcBase = new Base("NA", 33.997752, -85.456446);
+            var xcSave = new Save("WTFBBQ");
+            xcSave.Bases.Add(xcBase);
 
             var serializer = new SerializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
-            var yaml = serializer.Serialize(xcBase);
-            MessageBox.Show(yaml);
+            var yaml = serializer.Serialize(xcSave);
+            rtbOutput.Text = yaml;
         }
     }
 }
