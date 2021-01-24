@@ -35,8 +35,11 @@ namespace OpenXComEdit.Lib
         public AlienStrategy AlienStrategy { get; set; }
         public List<Soldier>? DeadSoldiers { get; set; }
         public List<MissionStatistics>? MissionStatistics { get; set; }
+        public List<string>? Discovered { get; set; }
+        public List<string>? PoppedResearch { get; set; }
+        public List<Ufo>? Ufos { get; set; }
 
-        public Save(string name, string version, string build, Time time, List<string> mods, int difficulty, int end, int monthsPassed, string graphRegionToggles, string graphCountryToggles, string graphFinanceToggles, ulong rng, List<int> funds, List<int> maintenance, List<int> researchScores, List<int> incomes, List<int> expenditures, bool warned, double globeLon, double globeLat, int globeZoom, Dictionary<string, int> ids, List<Country> countries, List<Region> regions, List<Base> bases, List<AlienMission> alienMissions, AlienStrategy alienStrategy, List<Soldier>? deadSoldiers, List<MissionStatistics>? missionStatistics)
+        public Save(string name, string version, string build, Time time, List<string> mods, int difficulty, int end, int monthsPassed, string graphRegionToggles, string graphCountryToggles, string graphFinanceToggles, ulong rng, List<int> funds, List<int> maintenance, List<int> researchScores, List<int> incomes, List<int> expenditures, bool warned, double globeLon, double globeLat, int globeZoom, Dictionary<string, int> ids, List<Country> countries, List<Region> regions, List<Base> bases, List<AlienMission> alienMissions, AlienStrategy alienStrategy, List<Soldier>? deadSoldiers, List<MissionStatistics>? missionStatistics, List<string>? discovered, List<string>? poppedResearch, List<Ufo>? ufos)
         {
             Name = name;
             Version = version;
@@ -67,6 +70,9 @@ namespace OpenXComEdit.Lib
             AlienStrategy = alienStrategy;
             DeadSoldiers = deadSoldiers;
             MissionStatistics = missionStatistics;
+            Discovered = discovered;
+            PoppedResearch = poppedResearch;
+            Ufos = ufos;
         }
 
         public Save(string name)
@@ -121,6 +127,9 @@ namespace OpenXComEdit.Lib
             AlienStrategy = new AlienStrategy();
             DeadSoldiers = null;
             MissionStatistics = null;
+            Discovered = null;
+            PoppedResearch = null;
+            Ufos = null;
         }
 
         private List<Country> defaultCountries()

@@ -4,9 +4,10 @@ namespace OpenXComEdit.Lib
 {
     public class Diary
     {
-        public KillList? KillList { get; set; }
+        public List<KillList>? KillList { get; set; }
         public List<int>? MissionIdList { get; set; }
         public int? DaysWoundedTotal { get; set; }
+        public int? MonthsService { get; set; }
         public int? UnconciousTotal { get; set; }
         public int? ShotAtCounterTotal { get; set; }
         public int? HitCounterTotal { get; set; }
@@ -14,13 +15,17 @@ namespace OpenXComEdit.Lib
         public int? ShotsFiredCounterTotal { get; set; }
         public int? ShotsLandedCounterTotal { get; set; }
         public int? TimesWoundedTotal { get; set; }
-        public int? statGainTotal { get; set; }
+        public int? StatGainTotal { get; set; }
+        public int? BestOfRank { get; set; }
+        public int? BestSoldier { get; set; }
+        public int? TotalShotByFriendlyCounter { get; set; }
 
-        public Diary(KillList? killList, List<int>? missionIdList, int? daysWoundedTotal, int? unconciousTotal, int? shotAtCounterTotal, int? hitCounterTotal, int? totalShotFriendlyCounter, int? shotsFiredCounterTotal, int? shotsLandedCounterTotal, int? timesWoundedTotal, int? statGainTotal)
+        public Diary(List<KillList>? killList, List<int>? missionIdList, int? daysWoundedTotal, int? monthsService, int? unconciousTotal, int? shotAtCounterTotal, int? hitCounterTotal, int? totalShotFriendlyCounter, int? shotsFiredCounterTotal, int? shotsLandedCounterTotal, int? timesWoundedTotal, int? statGainTotal, int? bestOfRank, int? bestSoldier, int? totalShotByFriendlyCounter)
         {
             KillList = killList;
             MissionIdList = missionIdList;
             DaysWoundedTotal = daysWoundedTotal;
+            MonthsService = monthsService;
             UnconciousTotal = unconciousTotal;
             ShotAtCounterTotal = shotAtCounterTotal;
             HitCounterTotal = hitCounterTotal;
@@ -28,7 +33,10 @@ namespace OpenXComEdit.Lib
             ShotsFiredCounterTotal = shotsFiredCounterTotal;
             ShotsLandedCounterTotal = shotsLandedCounterTotal;
             TimesWoundedTotal = timesWoundedTotal;
-            this.statGainTotal = statGainTotal;
+            StatGainTotal = statGainTotal;
+            BestOfRank = bestOfRank;
+            BestSoldier = bestSoldier;
+            TotalShotByFriendlyCounter = totalShotByFriendlyCounter;
         }
 
         public Diary()
@@ -36,6 +44,7 @@ namespace OpenXComEdit.Lib
             KillList = null;
             MissionIdList = null;
             DaysWoundedTotal = null;
+            MonthsService = null;
             UnconciousTotal = null;
             ShotAtCounterTotal = null;
             HitCounterTotal = null;
@@ -43,7 +52,10 @@ namespace OpenXComEdit.Lib
             ShotsFiredCounterTotal = null;
             ShotsLandedCounterTotal = null;
             TimesWoundedTotal = null;
-            statGainTotal = null;
+            StatGainTotal = null;
+            BestOfRank = null;
+            BestSoldier = null;
+            TotalShotByFriendlyCounter = null;
         }
     }
 }

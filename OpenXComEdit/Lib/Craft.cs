@@ -8,6 +8,7 @@ namespace OpenXComEdit.Lib
         public double Lon { get; set; }
         public double Lat { get; set; }
         public int Id { get; set; }
+        public string? Name { get; set; }
         public double SpeedLon { get; set; }
         public double SpeedLat { get; set; }
         public double SpeedRadian { get; set; }
@@ -18,12 +19,14 @@ namespace OpenXComEdit.Lib
         public List<Weapon>? Weapons { get; set; }
         public Dictionary<String, int> Items { get; set; }
         public string Status { get; set; }
+        public Destination? Dest { get; set; }
 
-        public Craft(double lon, double lat, int id, double speedLon, double speedLat, double speedRadian, int speed, string type, int fuel, int damage, List<Weapon>? weapons, Dictionary<string, int> items, string status)
+        public Craft(double lon, double lat, int id, string? name, double speedLon, double speedLat, double speedRadian, int speed, string type, int fuel, int damage, List<Weapon>? weapons, Dictionary<string, int> items, string status, Destination? dest)
         {
             Lon = lon;
             Lat = lat;
             Id = id;
+            Name = name;
             SpeedLon = speedLon;
             SpeedLat = speedLat;
             SpeedRadian = speedRadian;
@@ -34,6 +37,7 @@ namespace OpenXComEdit.Lib
             Weapons = weapons;
             Items = items;
             Status = status;
+            Dest = dest;
         }
 
         public Craft(double lat, double lon, int id, string type, int fuel, Dictionary<string, int> items, List<Weapon> weapons = null)
@@ -41,6 +45,7 @@ namespace OpenXComEdit.Lib
             Lon = lon;
             Lat = lat;
             Id = id;
+            Name = null;
             SpeedLon = 0;
             SpeedLat = 0;
             SpeedRadian = 0;
@@ -51,6 +56,7 @@ namespace OpenXComEdit.Lib
             Weapons = weapons;
             Items = items;
             Status = "STR_READY";
+            Dest = null;
         }
 
         public Craft()
