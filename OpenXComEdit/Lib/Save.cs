@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace XComIIEdit.Lib
+namespace OpenXComEdit.Lib
 {
     public class Save
     {

@@ -1,4 +1,4 @@
-﻿namespace XComIIEdit.Lib
+﻿namespace OpenXComEdit.Lib
 {
     public class SoldierCraft
     {

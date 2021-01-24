@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenXComEdit.Lib;
 
 namespace OpenXComEdit
 {
@@ -17,5 +18,9 @@ namespace OpenXComEdit
             InitializeComponent();
         }
 
+        private void btnWriteYAML_Click(object sender, EventArgs e)
+        {
+            var xcBase = new Base();
+        }
     }
 }

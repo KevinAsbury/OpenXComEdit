@@ -2,7 +2,7 @@
 using System.CodeDom;
 using System.Collections.Generic;
 
-namespace XComIIEdit.Lib
+namespace OpenXComEdit.Lib
 {
     public class Base
     {
@@ -10,8 +10,8 @@ namespace XComIIEdit.Lib
         public double Lat { get; set; }
         public string Name { get; set; }
         public List<Facility> Facilities { get; set; }
-        public List<Soldier> Soldiers { get; set; }
-        public List<Craft> Crafts { get; set; }
+        public List<Soldier>? Soldiers { get; set; }
+        public List<Craft>? Crafts { get; set; }
         public Dictionary<string, int> Items { get; set; }
         public int Scientists { get; set; }
         public int Engineers { get; set; }
@@ -41,8 +41,8 @@ namespace XComIIEdit.Lib
             Lat = 0.0;
             Name = "";
             Facilities = new List<Facility>();
-            Soldiers = new List<Soldier>();
-            Crafts = new List<Craft>();
+            Soldiers = null;
+            Crafts = null;
             Items = new Dictionary<string, int>();
             Scientists = 0;
             Engineers = 0;

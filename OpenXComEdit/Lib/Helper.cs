@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XComIIEdit.Lib
+namespace OpenXComEdit.Lib
 {
     public static class Helper
     {

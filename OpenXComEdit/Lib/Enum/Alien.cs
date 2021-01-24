@@ -1,4 +1,4 @@
-﻿namespace XComIIEdit.Lib.Enum
+﻿namespace OpenXComEdit.Lib.Enum
 {
     public static class Alien
     {
