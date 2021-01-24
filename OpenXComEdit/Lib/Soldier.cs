@@ -68,6 +68,11 @@ namespace OpenXComEdit.Lib
             Death = null;
         }
 
+        public Soldier()
+        {
+            
+        }
+
         public void SetCraft(double lat, double lon, string type, int id)
         {
             Craft = new SoldierCraft(lat, lon, type, id);

@@ -23,5 +23,10 @@ namespace OpenXComEdit.Lib
             ActivityAlien = new List<int>();
             ActivityAlien.Add(0);
         }
+
+        public Region()
+        {
+            
+        }
     }
 }

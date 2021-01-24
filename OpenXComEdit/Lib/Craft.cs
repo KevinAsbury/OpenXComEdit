@@ -52,5 +52,10 @@ namespace OpenXComEdit.Lib
             Items = items;
             Status = "STR_READY";
         }
+
+        public Craft()
+        {
+            
+        }
     }
 }

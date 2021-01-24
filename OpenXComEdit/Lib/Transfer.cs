@@ -12,5 +12,10 @@ namespace OpenXComEdit.Lib
             this.hours = hours;
             Soldier = soldier;
         }
+
+        public Transfer()
+        {
+            
+        }
     }
 }

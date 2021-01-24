@@ -10,5 +10,10 @@
             Type = type;
             Ammo = ammo;
         }
+
+        public Weapon()
+        {
+            
+        }
     }
 }
