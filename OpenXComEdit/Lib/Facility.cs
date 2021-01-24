@@ -3,11 +3,11 @@
     public class Facility
     {
         public string Type { get; set; }
-        public string X { get; set; }
-        public string Y { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
         public int? Building { get; set; }
 
-        public Facility(string type, string x, string y, int? building)
+        public Facility(string type, int x, int y, int? building = null)
         {
             Type = type;
             X = x;
@@ -18,8 +18,8 @@
         public Facility()
         {
             Type = "";
-            X = "";
-            Y = "";
+            X = 0;
+            Y = 0;
             Building = null;
         }
     }

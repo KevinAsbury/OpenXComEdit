@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OpenXComEdit.Lib
 {
@@ -16,7 +17,7 @@ namespace OpenXComEdit.Lib
         public int Missions { get; set; }
         public int Kills { get; set; }
         public int? Recovery { get; set; }
-        public Diary Diary { get; set; }
+        public Diary? Diary { get; set; }
         public string Armor { get; set; }
         public int Improvement { get; set; }
         public int PsiStrImprovement { get; set; }
@@ -45,26 +46,31 @@ namespace OpenXComEdit.Lib
             Death = death;
         }
 
-        public Soldier()
+        public Soldier(int id, string name, int gender, SoldierCraft craft = null)
         {
-            Type = "";
-            Id = 0;
-            Name = "";
+            Type = "STR_SOLDIER";
+            Id = id;
+            Name = name;
             InitialStats = new Stats();
-            CurrentStats = new Stats();
+            CurrentStats = InitialStats;
             Rank = 0;
-            Craft = new SoldierCraft();
-            Gender = 0;
-            Look = 0;
+            Craft = craft;
+            Gender = gender;
+            Look = new Random().Next(0, 3);
             Missions = 0;
             Kills = 0;
             Recovery = null;
-            Diary = new Diary();
-            Armor = "";
+            Diary = null;
+            Armor = "STR_NONE_UC";
             Improvement = 0;
             PsiStrImprovement = 0;
             EquipmentSlot = null;
             Death = null;
+        }
+
+        public void SetCraft(double lat, double lon, string type, int id)
+        {
+            Craft = new SoldierCraft(lat, lon, type, id);
         }
     }
 }

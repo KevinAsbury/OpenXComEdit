@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace OpenXComEdit.Lib
 {
@@ -37,25 +38,169 @@ namespace OpenXComEdit.Lib
 
         public Base(string name, double lon, double lat)
         {
-            Lon = lon;
-            Lat = lat;
-            Name = name;
+            DefaultInitializer(name, lon, lat);
+        }
+
+        public Base(string name, double lon, double lat, int x, int y)
+        {
+            DefaultInitializer(name, lon, lat, x, y);
         }
 
         public Base()
         {
-            Lon = 0.0;
-            Lat = 0.0;
-            Name = "";
-            Facilities = new List<Facility>();
-            Soldiers = null;
-            Crafts = null;
-            Items = new Dictionary<string, int>();
-            Scientists = 0;
-            Engineers = 0;
-            Research = null; 
+            DefaultInitializer(null, null, null, null, null);
+        }
+
+        private void DefaultInitializer(string? name, double? lon = null, double? lat = null, int? x = null, int? y = null)
+        {
+            Name = !string.IsNullOrEmpty(name) ? name : "Base1";
+
+            if (lon.HasValue && lat.HasValue)
+            {
+                Lon = lon.Value;
+                Lat = lat.Value;
+            }
+            else
+            {
+                Lon = 4.5738924040249991;
+                Lat = -0.86385638583468516;
+            }
+            
+            if (x.HasValue && y.HasValue)
+            {
+                Facilities = LiftOnly(x.Value, y.Value);
+                Items = new Dictionary<string, int>();
+                Scientists = 0;
+                Engineers = 0;
+                Soldiers = null;
+                Crafts = null;
+            }
+            else
+            {
+                Facilities = StartingFacilities();
+                Items = StartingItems();
+                Scientists = 10;
+                Engineers = 10;
+                Soldiers = StartingSoldiers();
+                Crafts = StartingCrafts();
+            }
+
+            Research = null;
             Transfers = null;
             Productions = null;
+        }
+
+        private List<Facility> LiftOnly(int x, int y)
+        {
+            var result = new List<Facility>();
+            result.Add(new Facility("STR_ACCESS_LIFT", x, y));
+            return result;
+        }
+
+        private List<Facility> StartingFacilities()
+        {
+            var result = new List<Facility>();
+
+            var access = new Facility("STR_ACCESS_LIFT", 2, 2);
+            result.Add(access);
+            var hang1 = new Facility("STR_HANGAR", 2, 0);
+            result.Add(hang1);
+            var hang2 = new Facility("STR_HANGAR", 0, 4);
+            result.Add(hang2);
+            var hang3 = new Facility("STR_HANGAR", 4, 4);
+            result.Add(hang3);
+            var lq = new Facility("STR_LIVING_QUARTERS", 3, 2);
+            result.Add(lq);
+            var gs = new Facility("STR_GENERAL_STORES", 2, 3);
+            result.Add(gs);
+            var lab = new Facility("STR_LABORATORY", 3, 3);
+            result.Add(lab);
+            var ws = new Facility("STR_WORKSHOP", 4, 3);
+            result.Add(ws);
+            var rad = new Facility("STR_SMALL_RADAR_SYSTEM", 1, 3);
+            result.Add(rad);
+
+            return result;
+        }
+
+        private Dictionary<string, int> StartingItems()
+        {
+            var result = new Dictionary<string, int>();
+            result.Add("STR_AC_AP_AMMO", 6);
+            result.Add("STR_AUTO_CANNON", 1);
+            result.Add("STR_AVALANCHE_LAUNCHER", 1);
+            result.Add("STR_AVALANCHE_MISSILES", 10);
+            result.Add("STR_CANNON", 2);
+            result.Add("STR_CANNON_ROUNDS_X50", 1);
+            result.Add("STR_GRENADE", 5);
+            result.Add("STR_HC_AP_AMMO", 6);
+            result.Add("STR_HEAVY_CANNON", 1);
+            result.Add("STR_PISTOL", 2);
+            result.Add("STR_PISTOL_CLIP", 8);
+            result.Add("STR_RIFLE", 2);
+            result.Add("STR_RIFLE_CLIP", 8);
+            result.Add("STR_ROCKET_LAUNCHER", 1);
+            result.Add("STR_SMALL_ROCKET", 4);
+            result.Add("STR_SMOKE_GRENADE", 5);
+            result.Add("STR_STINGRAY_LAUNCHER", 1);
+            result.Add("STR_STINGRAY_MISSILES", 25);
+            return result;
+        }
+
+        private List<Soldier> StartingSoldiers()
+        {
+            var result = new List<Soldier>();
+
+            var soldiers = new Dictionary<string, int>();
+            soldiers.Add("Owen Doherty", 0);
+            soldiers.Add("Martina Becker", 1);
+            soldiers.Add("Willie de Haan", 0);
+            soldiers.Add("Ushma Ganguly", 1);
+            soldiers.Add("Okan Karaduman", 0);
+            soldiers.Add("Sindre Folkow", 1);
+            soldiers.Add("Nasir Asaf", 0);
+            soldiers.Add("Lucian Marinescu", 0);
+
+            var craft = new SoldierCraft(Lat, Lon, "STR_SKYRANGER", 1);
+
+            int id = 1;
+            foreach (var soldier in soldiers)
+            {
+                var xcSoldier = new Soldier(id++, soldier.Key, soldier.Value, craft);
+                result.Add(xcSoldier);
+            }
+
+            return result;
+        }
+
+        private List<Craft> StartingCrafts()
+        {
+            var result = new List<Craft>();
+
+            var sr1Items = new Dictionary<String, int>();
+            sr1Items.Add("STR_GRENADE", 8);
+            sr1Items.Add("STR_HC_AP_AMMO", 2);
+            sr1Items.Add("STR_HC_HE_AMMO", 2);
+            sr1Items.Add("STR_HEAVY_CANNON", 1);
+            sr1Items.Add("STR_PISTOL", 3);
+            sr1Items.Add("STR_PISTOL_CLIP", 5);
+            sr1Items.Add("STR_RIFLE", 6);
+            sr1Items.Add("STR_RIFLE_CLIP", 12);
+            var sr1 = new Craft(Lat, Lon, 1, "STR_SKYRANGER", 1500, sr1Items);
+            result.Add(sr1);
+
+            var intercItems = new Dictionary<string, int>();
+            var intWeaps = new List<Weapon>();
+            intWeaps.Add(new Weapon("STR_STINGRAY", 6));
+            intWeaps.Add(new Weapon("STR_CANNON_UC", 200));
+            
+            var interc1 = new Craft(Lat, Lon, 1, "STR_INTERCEPTOR", 1000, intercItems, intWeaps);
+            result.Add(interc1);
+
+            var interc2 = new Craft(Lat, Lon, 2, "STR_INTERCEPTOR", 1000, intercItems, intWeaps);
+            result.Add(interc2);
+
+            return result;
         }
     }
 }

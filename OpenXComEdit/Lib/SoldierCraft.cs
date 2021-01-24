@@ -7,7 +7,7 @@
         public string Type { get; set; }
         public int Id { get; set; }
 
-        public SoldierCraft(double lon, double lat, string type, int id)
+        public SoldierCraft(double lat, double lon, string type, int id)
         {
             Lon = lon;
             Lat = lat;

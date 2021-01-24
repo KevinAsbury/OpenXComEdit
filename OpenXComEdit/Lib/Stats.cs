@@ -1,4 +1,6 @@
-﻿namespace OpenXComEdit.Lib
+﻿using System;
+
+namespace OpenXComEdit.Lib
 {
     public class Stats
     {
@@ -31,17 +33,19 @@
 
         public Stats()
         {
-            Tu = 0;
-            Stamina = 0;
-            Health = 0;
-            Bravery = 0;
-            Reactions = 0;
-            Firing = 0;
-            Throwing = 0;
-            Strength = 0;
-            PsiStrength = 0;
+            var rng = new Random();
+
+            Tu = rng.Next(50, 60);
+            Stamina = rng.Next(40, 70);
+            Health = rng.Next(25, 40);
+            Bravery = rng.Next(10, 60);
+            Reactions = rng.Next(30, 60);
+            Firing = rng.Next(40, 70);
+            Throwing = rng.Next(50, 80);
+            Strength = rng.Next(20, 40);
+            PsiStrength = rng.Next(0, 100);
             PsiSkill = 0;
-            Melee = 0;
+            Melee = rng.Next(20, 40);
         }
     }
 }

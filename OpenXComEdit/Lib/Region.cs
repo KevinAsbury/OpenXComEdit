@@ -1,23 +1,27 @@
-﻿namespace OpenXComEdit.Lib
+﻿using System.Collections.Generic;
+
+namespace OpenXComEdit.Lib
 {
     public class Region
     {
         public string Type { get; set; }
-        public int ActivityXcom { get; set; }
-        public int ActivityAlien { get; set; }
+        public List<int> ActivityXcom { get; set; }
+        public List<int> ActivityAlien { get; set; }
 
-        public Region(string type, int activityXcom, int activityAlien)
+        public Region(string type, List<int> activityXcom, List<int> activityAlien)
         {
             Type = type;
             ActivityXcom = activityXcom;
             ActivityAlien = activityAlien;
         }
 
-        public Region()
+        public Region(string name)
         {
-            Type = "";
-            ActivityXcom = 0;
-            ActivityAlien = 0;
+            Type = name;
+            ActivityXcom = new List<int>();
+            ActivityXcom.Add(0);
+            ActivityAlien = new List<int>();
+            ActivityAlien.Add(0);
         }
     }
 }

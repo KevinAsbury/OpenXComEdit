@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OpenXComEdit.Lib
 {
     public class Country
     {
         public string Type { get; set; }
-        public int Funding { get; set; } 
-        public int ActivityXcom { get; set; }
-        public int ActivityAlien { get; set; }
+        public List<int> Funding { get; set; } 
+        public List<int> ActivityXcom { get; set; }
+        public List<int> ActivityAlien { get; set; }
 
-        public Country(string type, int funding, int activityXcom, int activityAlien)
+        public Country(string type, List<int> funding, List<int> activityXcom, List<int> activityAlien)
         {
             Type = type;
             Funding = funding;
@@ -20,9 +21,12 @@ namespace OpenXComEdit.Lib
         public Country()
         {
             Type = "";
-            Funding = 0;
-            ActivityXcom = 0;
-            ActivityAlien = 0;
+            Funding = new List<int>();
+            Funding.Add(0);
+            ActivityXcom = new List<int>();
+            ActivityXcom.Add(0);
+            ActivityAlien = new List<int>();
+            ActivityAlien.Add(0);
         }
     }
 }

@@ -5,49 +5,52 @@ namespace OpenXComEdit.Lib
 {
     public class Craft
     {
-        public double lon { get; set; }
-        public double lat { get; set; }
-        public int id { get; set; }
-        public double speedLon { get; set; }
-        public double speedLat { get; set; }
-        public double speedRadian { get; set; }
-        public int speed { get; set; }
-        public string type { get; set; }
-        public int fuel { get; set; }
-        public int damage { get; set; }
-        public Dictionary<String, int> items { get; set; }
-        public string status { get; set; }
+        public double Lon { get; set; }
+        public double Lat { get; set; }
+        public int Id { get; set; }
+        public double SpeedLon { get; set; }
+        public double SpeedLat { get; set; }
+        public double SpeedRadian { get; set; }
+        public int Speed { get; set; }
+        public string Type { get; set; }
+        public int Fuel { get; set; }
+        public int Damage { get; set; }
+        public List<Weapon>? Weapons { get; set; }
+        public Dictionary<String, int> Items { get; set; }
+        public string Status { get; set; }
 
-        public Craft(double lon, double lat, int id, double speedLon, double speedLat, double speedRadian, int speed, string type, int fuel, int damage, Dictionary<string, int> items, string status)
+        public Craft(double lon, double lat, int id, double speedLon, double speedLat, double speedRadian, int speed, string type, int fuel, int damage, List<Weapon>? weapons, Dictionary<string, int> items, string status)
         {
-            this.lon = lon;
-            this.lat = lat;
-            this.id = id;
-            this.speedLon = speedLon;
-            this.speedLat = speedLat;
-            this.speedRadian = speedRadian;
-            this.speed = speed;
-            this.type = type;
-            this.fuel = fuel;
-            this.damage = damage;
-            this.items = items;
-            this.status = status;
+            Lon = lon;
+            Lat = lat;
+            Id = id;
+            SpeedLon = speedLon;
+            SpeedLat = speedLat;
+            SpeedRadian = speedRadian;
+            Speed = speed;
+            Type = type;
+            Fuel = fuel;
+            Damage = damage;
+            Weapons = weapons;
+            Items = items;
+            Status = status;
         }
 
-        public Craft()
+        public Craft(double lat, double lon, int id, string type, int fuel, Dictionary<string, int> items, List<Weapon> weapons = null)
         {
-            lon = 0.0;
-            lat = 0.0;
-            id = 0;
-            speedLon = 0.0;
-            speedLat = 0.0;
-            speedRadian = 0.0;
-            speed = 0;
-            type = "";
-            fuel = 0;
-            damage = 0;
-            items = new Dictionary<string, int>();
-            status = "";
+            Lon = lon;
+            Lat = lat;
+            Id = id;
+            SpeedLon = 0;
+            SpeedLat = 0;
+            SpeedRadian = 0;
+            Speed = 0;
+            Type = type;
+            Fuel = fuel;
+            Damage = 0;
+            Weapons = weapons;
+            Items = items;
+            Status = "STR_READY";
         }
     }
 }
