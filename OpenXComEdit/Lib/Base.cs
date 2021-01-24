@@ -17,8 +17,9 @@ namespace XComIIEdit.Lib
         public int Engineers { get; set; }
         public List<Research>? Research { get; set; }
         public List<Transfer>? Transfers { get; set; }
+        public List<Production>? Productions { get; set; }
 
-        public Base(double lon, double lat, string name, List<Facility> facilities, List<Soldier> soldiers, List<Craft> crafts, Dictionary<string, int> items, int scientists, int engineers, List<Research> research)
+        public Base(double lon, double lat, string name, List<Facility> facilities, List<Soldier> soldiers, List<Craft> crafts, Dictionary<string, int> items, int scientists, int engineers, List<Research>? research, List<Transfer>? transfers, List<Production>? productions)
         {
             Lon = lon;
             Lat = lat;
@@ -30,6 +31,8 @@ namespace XComIIEdit.Lib
             Scientists = scientists;
             Engineers = engineers;
             Research = research;
+            Transfers = transfers;
+            Productions = productions;
         }
 
         public Base()
@@ -43,7 +46,9 @@ namespace XComIIEdit.Lib
             Items = new Dictionary<string, int>();
             Scientists = 0;
             Engineers = 0;
-            Research = null;
+            Research = null; 
+            Transfers = null;
+            Productions = null;
         }
     }
 }
