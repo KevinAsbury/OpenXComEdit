@@ -35,6 +35,13 @@ namespace OpenXComEdit.Lib
             Productions = productions;
         }
 
+        public Base(string name, double lon, double lat)
+        {
+            Lon = lon;
+            Lat = lat;
+            Name = name;
+        }
+
         public Base()
         {
             Lon = 0.0;
