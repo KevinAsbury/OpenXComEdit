@@ -51,6 +51,7 @@ namespace OpenXComEdit
         {
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .IgnoreUnmatchedProperties()
                 .Build();
 
             var save = deserializer.Deserialize<Save>(rtbOutput.Text);
