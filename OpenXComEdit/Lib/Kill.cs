@@ -1,6 +1,6 @@
 ﻿namespace OpenXComEdit.Lib
 {
-    public class KillList
+    public class Kill
     {
         public string Type { get; set; }
         public string Rank { get; set; }
@@ -15,7 +15,7 @@
         public int Bodypart { get; set; }
         public int Id { get; set; }
 
-        public KillList(string type, string rank, string race, string weapon, string weaponAmmo, int status, int faction, int mission, int turn, int side, int bodypart, int id)
+        public Kill(string type, string rank, string race, string weapon, string weaponAmmo, int status, int faction, int mission, int turn, int side, int bodypart, int id)
         {
             Type = type;
             Rank = rank;
@@ -31,7 +31,7 @@
             Id = id;
         }
 
-        public KillList()
+        public Kill()
         {
             Type = "";
             Rank = "";

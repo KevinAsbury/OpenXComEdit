@@ -4,7 +4,7 @@ namespace OpenXComEdit.Lib
 {
     public class Diary
     {
-        public List<KillList>? KillList { get; set; }
+        public List<Kill>? KillList { get; set; }
         public List<int>? MissionIdList { get; set; }
         public int? DaysWoundedTotal { get; set; }
         public int? MonthsService { get; set; }
@@ -20,7 +20,7 @@ namespace OpenXComEdit.Lib
         public int? BestSoldier { get; set; }
         public int? TotalShotByFriendlyCounter { get; set; }
 
-        public Diary(List<KillList>? killList, List<int>? missionIdList, int? daysWoundedTotal, int? monthsService, int? unconciousTotal, int? shotAtCounterTotal, int? hitCounterTotal, int? totalShotFriendlyCounter, int? shotsFiredCounterTotal, int? shotsLandedCounterTotal, int? timesWoundedTotal, int? statGainTotal, int? bestOfRank, int? bestSoldier, int? totalShotByFriendlyCounter)
+        public Diary(List<Kill>? killList, List<int>? missionIdList, int? daysWoundedTotal, int? monthsService, int? unconciousTotal, int? shotAtCounterTotal, int? hitCounterTotal, int? totalShotFriendlyCounter, int? shotsFiredCounterTotal, int? shotsLandedCounterTotal, int? timesWoundedTotal, int? statGainTotal, int? bestOfRank, int? bestSoldier, int? totalShotByFriendlyCounter)
         {
             KillList = killList;
             MissionIdList = missionIdList;

@@ -21,11 +21,11 @@ namespace OpenXComEdit.Lib
         public string Armor { get; set; }
         public int Improvement { get; set; }
         public int PsiStrImprovement { get; set; }
-        public List<Equipment> EquipmentLayout { get; set; }
+        public List<Equipment>? EquipmentLayout { get; set; }
         public List<ItemType>? EquipmentSlot { get; set; }
         public Death? Death { get; set; }
 
-        public Soldier(string type, int id, string name, Stats initialStats, Stats currentStats, int rank, SoldierCraft craft, int gender, int look, int missions, int kills, int? recovery, Diary diary, string armor, int improvement, int psiStrImprovement, List<ItemType>? equipmentSlot, Death? death)
+        public Soldier(string type, int id, string name, Stats initialStats, Stats currentStats, int rank, SoldierCraft craft, int gender, int look, int missions, int kills, int? recovery, Diary? diary, string armor, int improvement, int psiStrImprovement, List<Equipment> equipmentLayout, List<ItemType>? equipmentSlot, Death? death)
         {
             Type = type;
             Id = id;
@@ -43,6 +43,7 @@ namespace OpenXComEdit.Lib
             Armor = armor;
             Improvement = improvement;
             PsiStrImprovement = psiStrImprovement;
+            EquipmentLayout = equipmentLayout;
             EquipmentSlot = equipmentSlot;
             Death = death;
         }
@@ -65,6 +66,7 @@ namespace OpenXComEdit.Lib
             Armor = "STR_NONE_UC";
             Improvement = 0;
             PsiStrImprovement = 0;
+            EquipmentLayout = null;
             EquipmentSlot = null;
             Death = null;
         }

@@ -5,13 +5,13 @@ namespace OpenXComEdit.Lib
     public class TempUnitStatistics
     {
         public bool WasUnconcious { get; set; }
-        public List<KillList> Kills { get; set; }
+        public List<Kill> Kills { get; set; }
         public int ShotAtCounter { get; set; }
         public int ShotsFiredCounter { get; set; }
         public int ShotsLandedCounter { get; set; }
         public int? HitCounter { get; set; }
 
-        public TempUnitStatistics(bool wasUnconcious, List<KillList> kills, int shotAtCounter, int shotsFiredCounter, int shotsLandedCounter, int? hitCounter)
+        public TempUnitStatistics(bool wasUnconcious, List<Kill> kills, int shotAtCounter, int shotsFiredCounter, int shotsLandedCounter, int? hitCounter)
         {
             WasUnconcious = wasUnconcious;
             Kills = kills;
