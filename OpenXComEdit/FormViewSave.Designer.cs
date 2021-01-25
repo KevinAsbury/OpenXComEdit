@@ -69,7 +69,8 @@ namespace OpenXComEdit
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.rtbOutput);
             this.Name = "FormViewSave";
-            this.Text = "YAML Testing";
+            this.ShowIcon = false;
+            this.Text = "Save Contents";
             this.Load += new System.EventHandler(this.FormViewSave_Load);
             this.ResumeLayout(false);
 

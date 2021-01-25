@@ -58,14 +58,22 @@ namespace OpenXComEdit
 
             var yaml = serializer.Serialize(State.SaveFile);
 
-            File.WriteAllText(path, yaml.Replace("difficulty", "---\r\ndifficulty"));
+            File.WriteAllText(path, yaml
+                .Replace("difficulty", "---\r\ndifficulty")
+                .Replace("aI:", "AI:")
+                .Replace("aIMode", "AIMode")
+                .Replace("xCOMProperty", "XCOMProperty"));
         }
         
         private void tsmiOpen_Click(object sender, EventArgs e)
         {
             if (ofdSaveFile.ShowDialog() == DialogResult.OK)
             {
-                var save = File.ReadAllText(ofdSaveFile.FileName).Replace("---\r\ndifficulty", "difficulty"); ;
+                var save = File.ReadAllText(ofdSaveFile.FileName)
+                    .Replace("---\r\ndifficulty", "difficulty")
+                    .Replace("AI:", "aI:")
+                    .Replace("AIMode", "aIMode")
+                    .Replace("XCOMProperty", "xCOMProperty");
 
                 var deserializer = new DeserializerBuilder()
                     .WithNamingConvention(CamelCaseNamingConvention.Instance)

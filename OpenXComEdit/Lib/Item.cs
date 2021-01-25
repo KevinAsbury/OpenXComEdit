@@ -13,5 +13,29 @@ namespace OpenXComEdit.Lib
         public int InventoryY { get; set; }
         public List<int> Position { get; set; }
         public bool? XCOMProperty { get; set; }
+        public int? Ammoqty { get; set; }
+        public int? AmmoItem { get; set; }
+        public int? Unit { get; set; }
+
+        public Item(int id, string type, int owner, int previousOwner, string inventoryslot, int inventoryX, int inventoryY, List<int> position, bool? xcomProperty, int? ammoqty, int? ammoItem, int? unit)
+        {
+            Id = id;
+            Type = type;
+            Owner = owner;
+            PreviousOwner = previousOwner;
+            Inventoryslot = inventoryslot;
+            InventoryX = inventoryX;
+            InventoryY = inventoryY;
+            Position = position;
+            XCOMProperty = xcomProperty;
+            Ammoqty = ammoqty;
+            AmmoItem = ammoItem;
+            Unit = unit;
+        }
+
+        public Item()
+        {
+            
+        }
     }
 }
