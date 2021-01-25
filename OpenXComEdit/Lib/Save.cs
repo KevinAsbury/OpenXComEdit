@@ -10,6 +10,8 @@ namespace OpenXComEdit.Lib
         public string Version { get; set; }
         public string Build { get; set; }
         public Time Time { get; set; }
+        public string? Mission { get; set;  }
+        public int? Turn { get; set; }
         public List<String> Mods { get; set; }
         public int Difficulty { get; set; }
         public int End { get; set; }
@@ -32,19 +34,23 @@ namespace OpenXComEdit.Lib
         public List<Region> Regions { get; set; }
         public List<Base> Bases { get; set; }
         public List<AlienMission> AlienMissions { get; set; }
+        public List<MissionSite>? MissionSites { get; set; }
         public AlienStrategy AlienStrategy { get; set; }
         public List<Soldier>? DeadSoldiers { get; set; }
         public List<MissionStatistics>? MissionStatistics { get; set; }
         public List<string>? Discovered { get; set; }
         public List<string>? PoppedResearch { get; set; }
         public List<Ufo>? Ufos { get; set; }
+        public BattleGame? BattleGame { get; set; }
 
-        public Save(string name, string version, string build, Time time, List<string> mods, int difficulty, int end, int monthsPassed, string graphRegionToggles, string graphCountryToggles, string graphFinanceToggles, ulong rng, List<int> funds, List<int> maintenance, List<int> researchScores, List<int> incomes, List<int> expenditures, bool warned, double globeLon, double globeLat, int globeZoom, Dictionary<string, int> ids, List<Country> countries, List<Region> regions, List<Base> bases, List<AlienMission> alienMissions, AlienStrategy alienStrategy, List<Soldier>? deadSoldiers, List<MissionStatistics>? missionStatistics, List<string>? discovered, List<string>? poppedResearch, List<Ufo>? ufos)
+        public Save(string name, string version, string build, Time time, string? mission, int? turn, List<string> mods, int difficulty, int end, int monthsPassed, string graphRegionToggles, string graphCountryToggles, string graphFinanceToggles, ulong rng, List<int> funds, List<int> maintenance, List<int> researchScores, List<int> incomes, List<int> expenditures, bool warned, double globeLon, double globeLat, int globeZoom, Dictionary<string, int> ids, List<Country> countries, List<Region> regions, List<Base> bases, List<AlienMission> alienMissions, List<MissionSite>? missionSites, AlienStrategy alienStrategy, List<Soldier>? deadSoldiers, List<MissionStatistics>? missionStatistics, List<string>? discovered, List<string>? poppedResearch, List<Ufo>? ufos, BattleGame? battleGame)
         {
             Name = name;
             Version = version;
             Build = build;
             Time = time;
+            Mission = mission;
+            Turn = turn;
             Mods = mods;
             Difficulty = difficulty;
             End = end;
@@ -67,12 +73,14 @@ namespace OpenXComEdit.Lib
             Regions = regions;
             Bases = bases;
             AlienMissions = alienMissions;
+            MissionSites = missionSites;
             AlienStrategy = alienStrategy;
             DeadSoldiers = deadSoldiers;
             MissionStatistics = missionStatistics;
             Discovered = discovered;
             PoppedResearch = poppedResearch;
             Ufos = ufos;
+            BattleGame = battleGame;
         }
 
         public Save(string name)
@@ -92,6 +100,8 @@ namespace OpenXComEdit.Lib
             Version = "1.0";
             Build = " git 2021-01-11 02:11";
             Time = new Time();
+            Mission = null;
+            Turn = null;
             Mods = new List<string>();
             Mods.Add("xcom1 ver: 1.0");
             Difficulty = 0;
@@ -124,12 +134,14 @@ namespace OpenXComEdit.Lib
             Regions = DefaultRegions();
             Bases = new List<Base>();
             AlienMissions = StartingAlienMissions();
+            MissionSites = null;
             AlienStrategy = new AlienStrategy();
             DeadSoldiers = null;
             MissionStatistics = null;
             Discovered = null;
             PoppedResearch = null;
             Ufos = null;
+            BattleGame = null;
         }
 
         private List<Country> defaultCountries()

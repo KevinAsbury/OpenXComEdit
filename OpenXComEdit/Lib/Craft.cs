@@ -20,8 +20,9 @@ namespace OpenXComEdit.Lib
         public Dictionary<String, int> Items { get; set; }
         public string Status { get; set; }
         public Destination? Dest { get; set; }
+        public bool? InBattlescape { get; set; }
 
-        public Craft(double lon, double lat, int id, string? name, double speedLon, double speedLat, double speedRadian, int speed, string type, int fuel, int damage, List<Weapon>? weapons, Dictionary<string, int> items, string status, Destination? dest)
+        public Craft(double lon, double lat, int id, string? name, double speedLon, double speedLat, double speedRadian, int speed, string type, int fuel, int damage, List<Weapon>? weapons, Dictionary<string, int> items, string status, Destination? dest, bool? inBattlescape)
         {
             Lon = lon;
             Lat = lat;
@@ -38,6 +39,7 @@ namespace OpenXComEdit.Lib
             Items = items;
             Status = status;
             Dest = dest;
+            InBattlescape = inBattlescape;
         }
 
         public Craft(double lat, double lon, int id, string type, int fuel, Dictionary<string, int> items, List<Weapon> weapons = null)
@@ -57,6 +59,7 @@ namespace OpenXComEdit.Lib
             Items = items;
             Status = "STR_READY";
             Dest = null;
+            InBattlescape = null;
         }
 
         public Craft()
