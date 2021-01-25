@@ -22,11 +22,11 @@ namespace OpenXComEdit
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             LoadSettings();
-            Application.Run(new Form1());
+            State.SaveFile = new Save();
+            State.LoadedSave = false;
+            Application.Run(new MainForm());
         }
-
-        internal static Settings Settings { get; set; }
-
+        
         static void LoadSettings()
         {
             if (File.Exists("Settings.yaml"))
@@ -38,17 +38,17 @@ namespace OpenXComEdit
                     .IgnoreUnmatchedProperties()
                     .Build();
 
-                Settings = deserializer.Deserialize<Settings>(yaml);
+                State.Settings = deserializer.Deserialize<Settings>(yaml);
             }
             else
             {
-                var settings = new Settings();
+                State.Settings = new Settings();
                 var serializer = new SerializerBuilder()
                     .WithNamingConvention(CamelCaseNamingConvention.Instance)
                     .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull)
                     .DisableAliases()
                     .Build();
-                var yaml = serializer.Serialize(settings);
+                var yaml = serializer.Serialize(State.Settings);
 
                 File.WriteAllText("Settings.yaml", yaml);
             }

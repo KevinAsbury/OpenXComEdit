@@ -15,36 +15,26 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace OpenXComEdit
 {
-    public partial class Form1 : Form
+    public partial class FormViewSave : Form
     {
-        public Form1()
+        public FormViewSave()
         {
             InitializeComponent();
         }
 
-        private void btnWriteYAML_Click(object sender, EventArgs e)
+        private void FormViewSave_Load(object sender, EventArgs e)
         {
             rtbOutput.Clear();
-            var xcBase = new Base("NA", 4.5738924040249991, -0.86385638583468516);
-            var xcSave = new Save("WTFBBQ");
-            xcSave.Bases.Add(xcBase);
 
             var serializer = new SerializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull)
                 .DisableAliases()
                 .Build();
-            var yaml = serializer.Serialize(xcSave);
-            rtbOutput.Text = yaml.Replace("difficulty", "---\r\ndifficulty");
-        }
 
-        private void btnLoadSave_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                rtbOutput.Clear();
-                rtbOutput.Text = File.ReadAllText(openFileDialog1.FileName).Replace("---\r\ndifficulty", "difficulty");
-            }
+            var yaml = serializer.Serialize(State.SaveFile);
+
+            rtbOutput.Text = yaml.Replace("difficulty", "---\r\ndifficulty");
         }
 
         private void btnReadYAML_Click(object sender, EventArgs e)
@@ -55,7 +45,11 @@ namespace OpenXComEdit
                 .Build();
 
             var save = deserializer.Deserialize<Save>(rtbOutput.Text);
-            MessageBox.Show(save.Version);
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(rtbOutput.Text);
         }
     }
 }
