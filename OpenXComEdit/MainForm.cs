@@ -58,7 +58,7 @@ namespace OpenXComEdit
 
             var yaml = serializer.Serialize(State.SaveFile);
 
-            File.WriteAllText(path, yaml);
+            File.WriteAllText(path, yaml.Replace("difficulty", "---\r\ndifficulty"));
         }
         
         private void tsmiOpen_Click(object sender, EventArgs e)
