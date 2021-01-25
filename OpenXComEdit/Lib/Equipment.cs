@@ -19,7 +19,11 @@
 
         public Equipment()
         {
-            
+            ItemType = "";
+            Slot = "";
+            SlotX = null;
+            SlotY = null;
+            AmmoItem = null;
         }
     }
 }

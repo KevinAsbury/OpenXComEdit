@@ -17,7 +17,10 @@
 
         public ItemType()
         {
-            
+            Slot = "";
+            AmmoItem = "";
+            SlotX = null;
+            SlotY = null;
         }
     }
 }

@@ -53,7 +53,27 @@ namespace OpenXComEdit.Lib
 
         public Ufo()
         {
-            
+            Lat = 0;
+            Lon = 0;
+            Id = 0;
+            Dest = new Destination();
+            SpeedLon = 0;
+            SpeedLat = 0;
+            SpeedRadian = 0;
+            Speed = 0;
+            Type = "";
+            LandId = 0;
+            Damage = 0;
+            Altitude = "";
+            Direction = "";
+            Status = 0;
+            Detected = false;
+            SecondsRemaining = 0;
+            Mission = 0;
+            Trajectory = "";
+            TrajectoryPoint = 0;
+            FireCountdown = 0;
+            EscapeCountdown = 0;
         }
     }
 }

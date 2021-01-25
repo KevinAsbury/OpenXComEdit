@@ -7,7 +7,7 @@ namespace OpenXComEdit.Lib
         public string Region { get; set; }
         public Dictionary<string, int>? Missions { get; set; }
 
-        public PossibleMission(string region, Dictionary<string, int> missions)
+        public PossibleMission(string region, Dictionary<string, int>? missions)
         {
             Region = region;
             Missions = missions;

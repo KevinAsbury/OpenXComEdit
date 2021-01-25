@@ -27,7 +27,15 @@
 
         public MissionSite()
         {
-            
+            Lon = 0;
+            Lat = 0;
+            Id = 0;
+            Type = "";
+            Deployment = "";
+            Texture = 0;
+            Race = "";
+            InBattlescape = false;
+            Detected = false;
         }
     }
 }

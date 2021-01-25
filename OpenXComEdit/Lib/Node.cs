@@ -31,7 +31,16 @@ namespace OpenXComEdit.Lib
 
         public Node()
         {
-            
+            Id = 0;
+            Position = new List<int>();
+            Type = 0;
+            Rank = 0;
+            Flags = 0;
+            Reserved = 0;
+            Priority = 0;
+            Allocated = false;
+            Links = new List<int>();
+            Dummy = false;
         }
     }
 }

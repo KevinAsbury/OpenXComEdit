@@ -21,7 +21,11 @@ namespace OpenXComEdit.Lib
 
         public Transfer()
         {
-            
+            this.hours = hours;
+            Soldier = null;
+            Craft = null;
+            ItemId = null;
+            ItemQty = null;
         }
     }
 }

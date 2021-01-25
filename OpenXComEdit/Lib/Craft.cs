@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OpenXComEdit.Lib
 {
@@ -17,7 +16,7 @@ namespace OpenXComEdit.Lib
         public int Fuel { get; set; }
         public int Damage { get; set; }
         public List<Weapon>? Weapons { get; set; }
-        public Dictionary<String, int> Items { get; set; }
+        public Dictionary<string, int> Items { get; set; }
         public string Status { get; set; }
         public Destination? Dest { get; set; }
         public bool? InBattlescape { get; set; }
@@ -42,7 +41,7 @@ namespace OpenXComEdit.Lib
             InBattlescape = inBattlescape;
         }
 
-        public Craft(double lat, double lon, int id, string type, int fuel, Dictionary<string, int> items, List<Weapon> weapons = null)
+        public Craft(double lat, double lon, int id, string type, int fuel, Dictionary<string, int> items, List<Weapon>? weapons = null)
         {
             Lon = lon;
             Lat = lat;
@@ -64,7 +63,22 @@ namespace OpenXComEdit.Lib
 
         public Craft()
         {
-            
+            Lon = 0;
+            Lat = 0;
+            Id = 0;
+            Name = null;
+            SpeedLon = 0;
+            SpeedLat = 0;
+            SpeedRadian = 0;
+            Speed = 0;
+            Type = "";
+            Fuel = 0;
+            Damage = 0;
+            Weapons = null;
+            Items = new Dictionary<string, int>();
+            Status = "";
+            Dest = null;
+            InBattlescape = null;
         }
     }
 }

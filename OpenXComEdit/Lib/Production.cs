@@ -2,7 +2,7 @@
 {
     public class Production
     {
-        public string Item { get; set; } 
+        public string Item { get; set; }
         public int Assigned { get; set; }
         public int Spent { get; set; }
         public int Amount { get; set; }

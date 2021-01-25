@@ -15,7 +15,9 @@
 
         public Weapon()
         {
-            
+            Type = "";
+            Ammo = 0;
+            Rearming = null;
         }
     }
 }

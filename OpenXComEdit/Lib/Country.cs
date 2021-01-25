@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OpenXComEdit.Lib
 {
     public class Country
     {
         public string Type { get; set; }
-        public List<int> Funding { get; set; } 
+        public List<int> Funding { get; set; }
         public List<int> ActivityXcom { get; set; }
         public List<int> ActivityAlien { get; set; }
 

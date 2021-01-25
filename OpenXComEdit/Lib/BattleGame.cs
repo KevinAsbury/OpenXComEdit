@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.Design;
 
 namespace OpenXComEdit.Lib
 {
@@ -70,7 +69,35 @@ namespace OpenXComEdit.Lib
 
         public BattleGame()
         {
-            
+            Width = 0;
+            Length = 0;
+            Height = 0;
+            MissionType = "";
+            Globalshade = 0;
+            Turn = 0;
+            SelectedUnit = 0;
+            Mapdatasets = new List<string>();
+            TileIndexSize = "";
+            TileTotalBytesPer = 0;
+            TileFireSize = "";
+            TileSmokeSize = "";
+            TileIDSize = "";
+            TileSetIDSize = "";
+            TileBoolFieldsSize = "";
+            TotalTiles = 0;
+            BinTiles = "";
+            Nodes = new List<Node>();
+            Units = new List<Unit>();
+            Items = new List<Item>();
+            TuReserved = 0;
+            KneelReserved = false;
+            Depth = 0;
+            Ambience = 0;
+            AmbientVolume = 0;
+            Music = "";
+            TurnLimit = 0;
+            ChronoTrigger = 0;
+            CheatTurn = 0;
         }
     }
 }

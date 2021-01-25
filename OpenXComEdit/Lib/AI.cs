@@ -19,7 +19,10 @@ namespace OpenXComEdit.Lib
 
         public AI()
         {
-            
+            FromNode = 0;
+            ToNode = 0;
+            AIMode = 0;
+            WasHitBy = new List<int>();
         }
     }
 }

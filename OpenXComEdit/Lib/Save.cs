@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
 
 namespace OpenXComEdit.Lib
 {
@@ -10,9 +8,9 @@ namespace OpenXComEdit.Lib
         public string Version { get; set; }
         public string Build { get; set; }
         public Time Time { get; set; }
-        public string? Mission { get; set;  }
+        public string? Mission { get; set; }
         public int? Turn { get; set; }
-        public List<String> Mods { get; set; }
+        public List<string> Mods { get; set; }
         public int Difficulty { get; set; }
         public int End { get; set; }
         public int MonthsPassed { get; set; }

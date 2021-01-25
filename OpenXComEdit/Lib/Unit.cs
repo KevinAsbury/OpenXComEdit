@@ -99,8 +99,50 @@ namespace OpenXComEdit.Lib
 
         public Unit()
         {
-            
+            Id = 0;
+            GenUnitType = "";
+            GenUnitArmor = "";
+            Faction = 0;
+            Status = 0;
+            Position = new List<int>();
+            Direction = 0;
+            DirectionTurret = 0;
+            Tu = 0;
+            Health = 0;
+            Stunlevel = 0;
+            Energy = 0;
+            Morale = 0;
+            Kneeled = false;
+            Floating = false;
+            Armor = new List<int>();
+            FatalWounds = new List<int>();
+            Fire = 0;
+            ExpBravery = 0;
+            ExpReactions = 0;
+            ExpFiring = 0;
+            ExpThrowing = 0;
+            ExpPsiSkill = 0;
+            ExpPsiStrength = 0;
+            ExpMelee = 0;
+            TurretType = 0;
+            Visible = false;
+            TurnsSinceSpotted = 0;
+            RankInt = 0;
+            MoraleRestored = 0;
+            AI = null;
+            KilledBy = 0;
+            Kills = 0;
+            MotionPoints = 0;
+            Respawn = false;
+            ActiveHand = "";
+            TempUnitStatistics = new TempUnitStatistics();
+            MurdererId = 0;
+            FatalShotSide = 0;
+            FatalShotBodyPart = 0;
+            MurdererWeapon = "";
+            MurdererWeaponAmmo = "";
+            Recolor = new List<List<int>>();
+            MindControllerID = 0;
         }
-
     }
 }

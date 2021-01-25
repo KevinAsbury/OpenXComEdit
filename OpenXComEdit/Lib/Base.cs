@@ -1,7 +1,4 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+﻿using System.Collections.Generic;
 
 namespace OpenXComEdit.Lib
 {
@@ -48,24 +45,15 @@ namespace OpenXComEdit.Lib
 
         public Base()
         {
-            DefaultInitializer(null, null, null, null, null);
+            DefaultInitializer("Base1", 4.5738924040249991, -0.86385638583468516, null, null);
         }
 
-        private void DefaultInitializer(string? name, double? lon = null, double? lat = null, int? x = null, int? y = null)
+        private void DefaultInitializer(string name, double lon = 4.5738924040249991, double lat = -0.86385638583468516, int? x = null, int? y = null)
         {
-            Name = !string.IsNullOrEmpty(name) ? name : "Base1";
+            Lon = lon;
+            Lat = lat;
+            Name = name;
 
-            if (lon.HasValue && lat.HasValue)
-            {
-                Lon = lon.Value;
-                Lat = lat.Value;
-            }
-            else
-            {
-                Lon = 4.5738924040249991;
-                Lat = -0.86385638583468516;
-            }
-            
             if (x.HasValue && y.HasValue)
             {
                 Facilities = LiftOnly(x.Value, y.Value);
@@ -177,7 +165,7 @@ namespace OpenXComEdit.Lib
         {
             var result = new List<Craft>();
 
-            var sr1Items = new Dictionary<String, int>();
+            var sr1Items = new Dictionary<string, int>();
             sr1Items.Add("STR_GRENADE", 8);
             sr1Items.Add("STR_HC_AP_AMMO", 2);
             sr1Items.Add("STR_HC_HE_AMMO", 2);
@@ -193,7 +181,7 @@ namespace OpenXComEdit.Lib
             var intWeaps = new List<Weapon>();
             intWeaps.Add(new Weapon("STR_STINGRAY", 6));
             intWeaps.Add(new Weapon("STR_CANNON_UC", 200));
-            
+
             var interc1 = new Craft(Lat, Lon, 1, "STR_INTERCEPTOR", 1000, intercItems, intWeaps);
             result.Add(interc1);
 

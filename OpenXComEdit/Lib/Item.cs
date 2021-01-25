@@ -35,7 +35,18 @@ namespace OpenXComEdit.Lib
 
         public Item()
         {
-            
+            Id = 0;
+            Type = "";
+            Owner = 0;
+            PreviousOwner = 0;
+            Inventoryslot = "";
+            InventoryX = 0;
+            InventoryY = 0;
+            Position = new List<int>();
+            XCOMProperty = null;
+            Ammoqty = null;
+            AmmoItem = null;
+            Unit = null;
         }
     }
 }

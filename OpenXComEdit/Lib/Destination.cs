@@ -17,7 +17,10 @@
 
         public Destination()
         {
-            
+            Lat = 0;
+            Lon = 0;
+            Type = "";
+            Id = 0;
         }
     }
 }

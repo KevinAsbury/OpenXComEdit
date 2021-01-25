@@ -23,7 +23,12 @@ namespace OpenXComEdit.Lib
 
         public TempUnitStatistics()
         {
-            
+            WasUnconcious = false;
+            Kills = new List<Kill>();
+            ShotAtCounter = 0;
+            ShotsFiredCounter = 0;
+            ShotsLandedCounter = 0;
+            HitCounter = null;
         }
     }
 }

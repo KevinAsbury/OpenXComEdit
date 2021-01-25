@@ -11,7 +11,7 @@ namespace OpenXComEdit.Lib
         public Stats InitialStats { get; set; }
         public Stats CurrentStats { get; set; }
         public int Rank { get; set; }
-        public SoldierCraft Craft { get; set; }
+        public SoldierCraft? Craft { get; set; }
         public int Gender { get; set; }
         public int Look { get; set; }
         public int Missions { get; set; }
@@ -48,7 +48,7 @@ namespace OpenXComEdit.Lib
             Death = death;
         }
 
-        public Soldier(int id, string name, int gender, SoldierCraft craft = null)
+        public Soldier(int id, string name, int gender, SoldierCraft? craft = null)
         {
             Type = "STR_SOLDIER";
             Id = id;
@@ -73,7 +73,25 @@ namespace OpenXComEdit.Lib
 
         public Soldier()
         {
-            
+            Type = "STR_SOLDIER";
+            Id = 0;
+            Name = "";
+            InitialStats = new Stats();
+            CurrentStats = InitialStats;
+            Rank = 0;
+            Craft = null;
+            Gender = new Random().Next(0, 1); ;
+            Look = new Random().Next(0, 3); ;
+            Missions = 0;
+            Kills = 0;
+            Recovery = null;
+            Diary = null;
+            Armor = "";
+            Improvement = 0;
+            PsiStrImprovement = 0;
+            EquipmentLayout = null;
+            EquipmentSlot = null;
+            Death = null;
         }
 
         public void SetCraft(double lat, double lon, string type, int id)

@@ -13,7 +13,8 @@
 
         public Death()
         {
-            
+            Time = new Time();
+            Cause = new Kill();
         }
     }
 }

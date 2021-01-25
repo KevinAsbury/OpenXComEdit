@@ -26,7 +26,9 @@ namespace OpenXComEdit.Lib
 
         public Region()
         {
-            
+            Type = "";
+            ActivityXcom = new List<int>();
+            ActivityAlien = new List<int>();
         }
     }
 }
