@@ -391,7 +391,7 @@ namespace OpenXComEdit
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(541, 35);
+            this.label2.Location = new System.Drawing.Point(524, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 48);
             this.label2.TabIndex = 3;
@@ -399,7 +399,7 @@ namespace OpenXComEdit
             // 
             // txtScientists
             // 
-            this.txtScientists.Location = new System.Drawing.Point(722, 31);
+            this.txtScientists.Location = new System.Drawing.Point(698, 31);
             this.txtScientists.Name = "txtScientists";
             this.txtScientists.Size = new System.Drawing.Size(94, 55);
             this.txtScientists.TabIndex = 4;
@@ -407,7 +407,7 @@ namespace OpenXComEdit
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(534, 119);
+            this.label3.Location = new System.Drawing.Point(517, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 48);
             this.label3.TabIndex = 3;
@@ -415,7 +415,7 @@ namespace OpenXComEdit
             // 
             // txtEngineers
             // 
-            this.txtEngineers.Location = new System.Drawing.Point(722, 117);
+            this.txtEngineers.Location = new System.Drawing.Point(698, 117);
             this.txtEngineers.Name = "txtEngineers";
             this.txtEngineers.Size = new System.Drawing.Size(94, 55);
             this.txtEngineers.TabIndex = 4;
@@ -439,7 +439,7 @@ namespace OpenXComEdit
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(853, 31);
+            this.label5.Location = new System.Drawing.Point(798, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 48);
             this.label5.TabIndex = 3;
@@ -447,15 +447,15 @@ namespace OpenXComEdit
             // 
             // txtLon
             // 
-            this.txtLon.Location = new System.Drawing.Point(945, 28);
+            this.txtLon.Location = new System.Drawing.Point(890, 28);
             this.txtLon.Name = "txtLon";
-            this.txtLon.Size = new System.Drawing.Size(293, 55);
+            this.txtLon.Size = new System.Drawing.Size(348, 55);
             this.txtLon.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(864, 113);
+            this.label6.Location = new System.Drawing.Point(809, 115);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 48);
             this.label6.TabIndex = 3;
@@ -463,9 +463,9 @@ namespace OpenXComEdit
             // 
             // txtLat
             // 
-            this.txtLat.Location = new System.Drawing.Point(945, 112);
+            this.txtLat.Location = new System.Drawing.Point(890, 112);
             this.txtLat.Name = "txtLat";
-            this.txtLat.Size = new System.Drawing.Size(293, 55);
+            this.txtLat.Size = new System.Drawing.Size(348, 55);
             this.txtLat.TabIndex = 4;
             // 
             // cmFacilities

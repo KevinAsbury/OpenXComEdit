@@ -19,8 +19,16 @@ namespace OpenXComEdit
             InitializeComponent();
         }
 
-        private void loadTiles()
+        private void loadControls()
         {
+            foreach (var control in this.Controls)
+            {
+                if (control.GetType() == typeof(Button))
+                {
+                    ((Button) control).Text = "";
+                }
+            }
+
             foreach (var facility in State.SaveFile.Bases[SelectedBase].Facilities)
             {
                 foreach (var control in this.Controls)
@@ -41,6 +49,12 @@ namespace OpenXComEdit
                     }
                 }
             }
+
+            txtName.Text = State.SaveFile.Bases[SelectedBase].Name;
+            txtScientists.Text = State.SaveFile.Bases[SelectedBase].Scientists.ToString();
+            txtEngineers.Text = State.SaveFile.Bases[SelectedBase].Engineers.ToString();
+            txtLon.Text = State.SaveFile.Bases[SelectedBase].Lon.ToString();
+            txtLat.Text = State.SaveFile.Bases[SelectedBase].Lat.ToString();
         }
 
         private void FormViewBase_Load(object sender, EventArgs e)
@@ -48,12 +62,13 @@ namespace OpenXComEdit
             SelectedBase = 0;
             cmbBase.DataSource = State.SaveFile.Bases;
             cmbBase.DisplayMember = "Name";
-            loadTiles();
+            loadControls();
         }
 
         private void cmbBase_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedBase = cmbBase.SelectedIndex;
+            loadControls();
         }
 
         public class BaseTile : Button
