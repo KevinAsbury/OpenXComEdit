@@ -131,7 +131,8 @@ namespace OpenXComEdit
 
         private void tsmiSoldiers_Click(object sender, EventArgs e)
         {
-
+            var frmViewSoldiers = new FormViewSoldiers();
+            frmViewSoldiers.Show();
         }
 
         private void tsmiViewSave_Click(object sender, EventArgs e)
