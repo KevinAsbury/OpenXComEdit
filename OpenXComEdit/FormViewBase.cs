@@ -14,6 +14,8 @@ namespace OpenXComEdit
     public partial class FormViewBase : Form
     {
         private int SelectedBase { get; set; }
+        private BaseTile token { get; set; }
+
         public FormViewBase()
         {
             InitializeComponent();
@@ -55,6 +57,8 @@ namespace OpenXComEdit
             txtEngineers.Text = State.SaveFile.Bases[SelectedBase].Engineers.ToString();
             txtLon.Text = State.SaveFile.Bases[SelectedBase].Lon.ToString();
             txtLat.Text = State.SaveFile.Bases[SelectedBase].Lat.ToString();
+
+
         }
 
         private void FormViewBase_Load(object sender, EventArgs e)
@@ -62,29 +66,64 @@ namespace OpenXComEdit
             SelectedBase = 0;
             cmbBase.DataSource = State.SaveFile.Bases;
             cmbBase.DisplayMember = "Name";
+
+            cmbBuild.Items.Add("None");
+            cmbBuild.Items.Add("XFacility");
+
+            token = new BaseTile();
+            token.Location = new System.Drawing.Point(1280, 205);
+            token.Name = "token";
+            token.Text = "token";
+            token.Size = new System.Drawing.Size(200, 200);
+            token.TabIndex = 0;
+            token.UseVisualStyleBackColor = true;
+            token.Visible = true;
+            token.BringToFront();
+            token.MouseMove += new MouseEventHandler(token_onMouseMove);
+
+            Controls.Add(token);
+
             loadControls();
         }
-
+        
         private void cmbBase_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedBase = cmbBase.SelectedIndex;
             loadControls();
         }
 
+        private void cmbBuild_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private Point MouseDownLocation { get; set; }
+
+        private void token_onMouseDown(object senter, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownLocation = e.Location;
+            }
+        }
+
+        private void token_onMouseMove(object senter, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                token.Left = e.X + token.Left - MouseDownLocation.X;
+                token.Top = e.Y + token.Top - MouseDownLocation.Y;
+            }
+        }
+
         public class BaseTile : Button
         {
-            public string Facility { get; set; }
-            public EventHandler FacilityChanged { get; set; }
 
             public BaseTile()
             {
-                Click += new EventHandler(on_Click);
+
             }
 
-            private void on_Click(object sender, EventArgs e)
-            {
-                this.Text = "Testing";
-            }
         }
     }
 }
