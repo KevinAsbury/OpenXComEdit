@@ -126,7 +126,8 @@ namespace OpenXComEdit
 
         private void tsmiBases_Click(object sender, EventArgs e)
         {
-
+            var frmViewBases = new FormViewBase();
+            frmViewBases.Show();
         }
 
         private void tsmiSoldiers_Click(object sender, EventArgs e)

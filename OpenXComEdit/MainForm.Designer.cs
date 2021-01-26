@@ -33,6 +33,7 @@ namespace OpenXComEdit
             this.tsmiFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiGameDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -41,7 +42,6 @@ namespace OpenXComEdit
             this.tsmiSoldiers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiViewSave = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdSaveFile = new System.Windows.Forms.OpenFileDialog();
-            this.tsmiSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,13 @@ namespace OpenXComEdit
             this.tsmiSave.Size = new System.Drawing.Size(493, 66);
             this.tsmiSave.Text = "Save";
             this.tsmiSave.Click += new System.EventHandler(this.tsmiSave_Click);
+            // 
+            // tsmiSaveAs
+            // 
+            this.tsmiSaveAs.Name = "tsmiSaveAs";
+            this.tsmiSaveAs.Size = new System.Drawing.Size(493, 66);
+            this.tsmiSaveAs.Text = "Save As...";
+            this.tsmiSaveAs.Click += new System.EventHandler(this.tsmiSaveAs_Click);
             // 
             // toolStripSeparator2
             // 
@@ -136,13 +143,6 @@ namespace OpenXComEdit
             // ofdSaveFile
             // 
             this.ofdSaveFile.Filter = "\"Sav Files|*.sav|All Files|*.*\"";
-            // 
-            // tsmiSaveAs
-            // 
-            this.tsmiSaveAs.Name = "tsmiSaveAs";
-            this.tsmiSaveAs.Size = new System.Drawing.Size(493, 66);
-            this.tsmiSaveAs.Text = "Save As...";
-            this.tsmiSaveAs.Click += new System.EventHandler(this.tsmiSaveAs_Click);
             // 
             // MainForm
             // 
