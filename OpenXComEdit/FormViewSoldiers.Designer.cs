@@ -32,6 +32,8 @@ namespace OpenXComEdit
             this.lbSoldiers = new System.Windows.Forms.ListBox();
             this.pgSoldiers = new System.Windows.Forms.PropertyGrid();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cmbBase = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -47,12 +49,14 @@ namespace OpenXComEdit
             this.lbSoldiers.Name = "lbSoldiers";
             this.lbSoldiers.Size = new System.Drawing.Size(600, 1155);
             this.lbSoldiers.TabIndex = 0;
+            this.lbSoldiers.SelectedIndexChanged += new System.EventHandler(this.lbSoldiers_SelectedIndexChanged);
             // 
             // pgSoldiers
             // 
             this.pgSoldiers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pgSoldiers.Location = new System.Drawing.Point(0, 0);
             this.pgSoldiers.Name = "pgSoldiers";
+            this.pgSoldiers.PropertySort = System.Windows.Forms.PropertySort.NoSort;
             this.pgSoldiers.Size = new System.Drawing.Size(836, 1155);
             this.pgSoldiers.TabIndex = 1;
             // 
@@ -75,11 +79,31 @@ namespace OpenXComEdit
             this.splitContainer1.SplitterDistance = 600;
             this.splitContainer1.TabIndex = 2;
             // 
+            // cmbBase
+            // 
+            this.cmbBase.FormattingEnabled = true;
+            this.cmbBase.Location = new System.Drawing.Point(143, 55);
+            this.cmbBase.Name = "cmbBase";
+            this.cmbBase.Size = new System.Drawing.Size(469, 56);
+            this.cmbBase.TabIndex = 3;
+            this.cmbBase.SelectedIndexChanged += new System.EventHandler(this.cmbBase_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 48);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Base:";
+            // 
             // FormViewSoldiers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1464, 1324);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbBase);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormViewSoldiers";
             this.ShowIcon = false;
@@ -90,6 +114,7 @@ namespace OpenXComEdit
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,5 +123,7 @@ namespace OpenXComEdit
         private System.Windows.Forms.ListBox lbSoldiers;
         private System.Windows.Forms.PropertyGrid pgSoldiers;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ComboBox cmbBase;
+        private System.Windows.Forms.Label label1;
     }
 }
