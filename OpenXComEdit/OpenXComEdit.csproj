@@ -8,6 +8,8 @@
 	<LangVersion>8.0</LangVersion>
 	<Platforms>AnyCPU;x64</Platforms>
 	<NoWarn>8632</NoWarn>
+	<Version>0.7.0</Version>
+	<Authors>Kevin Asbury</Authors>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
