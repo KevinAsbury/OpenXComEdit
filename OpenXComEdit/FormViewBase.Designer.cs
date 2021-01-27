@@ -776,9 +776,9 @@ namespace OpenXComEdit
             this.cmbBuild.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbBuild.FormattingEnabled = true;
-            this.cmbBuild.Location = new System.Drawing.Point(1280, 107);
+            this.cmbBuild.Location = new System.Drawing.Point(1507, 38);
             this.cmbBuild.Name = "cmbBuild";
-            this.cmbBuild.Size = new System.Drawing.Size(363, 56);
+            this.cmbBuild.Size = new System.Drawing.Size(657, 56);
             this.cmbBuild.TabIndex = 6;
             this.cmbBuild.SelectedIndexChanged += new System.EventHandler(this.cmbBuild_SelectedIndexChanged);
             // 
@@ -798,29 +798,32 @@ namespace OpenXComEdit
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbInstructions.BackColor = System.Drawing.SystemColors.Control;
             this.rtbInstructions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbInstructions.Location = new System.Drawing.Point(1225, 438);
+            this.rtbInstructions.Location = new System.Drawing.Point(1241, 443);
             this.rtbInstructions.Name = "rtbInstructions";
             this.rtbInstructions.ReadOnly = true;
             this.rtbInstructions.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.rtbInstructions.Size = new System.Drawing.Size(423, 816);
+            this.rtbInstructions.Size = new System.Drawing.Size(936, 859);
             this.rtbInstructions.TabIndex = 8;
             this.rtbInstructions.Text = "";
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnSave.Location = new System.Drawing.Point(1295, 1336);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(293, 69);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save Changes";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FormViewBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1660, 1445);
+            this.ClientSize = new System.Drawing.Size(2202, 1445);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.rtbInstructions);
             this.Controls.Add(this.label7);

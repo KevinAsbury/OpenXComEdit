@@ -1,16 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Collections.Immutable;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 using System.Windows.Forms;
-using Microsoft.VisualBasic.Devices;
 
 namespace OpenXComEdit
 {
@@ -37,27 +29,45 @@ namespace OpenXComEdit
 
             foreach (var facility in State.SaveFile.Bases[selectedBase].Facilities)
             {
-                foreach (var control in this.Controls)
+                foreach (var control in this.Controls) // loop through each control on this form
                 {
-                    if (control.GetType() == typeof(BaseTile))
+                    if (control.GetType() == typeof(BaseTile)) // if a BaseTile...
                     {
                         var baseTile = ((BaseTile) control);
-                        // This is a little extra... but C# is being dumb
-                        // about splitting a string reliably... SMH
+                        
+                        // Each tile is named for it's x and y coords.
+                        // Convert the name, 'btn03' for example, into the coordinates (0, 3)
+                        // .Net gave me sketchy results string splitting so...
+                        // we have to do it another way, with char arrays
                         var tileCoords = baseTile.Name
-                            .Replace("btn", "")
-                            .ToCharArray();
+                            .Replace("btn", "") // remove "btn"
+                            .ToCharArray(); // split two numbers into a char array
 
-                        baseTile.Y = Convert.ToInt32(tileCoords[0].ToString());
-                        baseTile.X = Convert.ToInt32(tileCoords[1].ToString());
-
-                        if (tileCoords[0].ToString() == facility.Y.ToString() &&
-                            tileCoords[1].ToString() == facility.X.ToString())
+                        // make sure coord chars are numberic to avoid amy conversion errors
+                        if (char.IsNumber(tileCoords[0]) && char.IsNumber(tileCoords[1]))
                         {
-                            baseTile.Facility = facility.Type;
+                            // converts char to string representation of a number
+                            var y = Convert.ToInt32(tileCoords[0].ToString());
+                            var x = Convert.ToInt32(tileCoords[1].ToString());
 
-                            if (facility.Type == "STR_HANGAR")
-                                placeHangars(baseTile.X, baseTile.Y);
+                            baseTile.Y = y;
+                            baseTile.X = x;
+
+                            if (x == facility.X && y == facility.Y)
+                            {
+                                baseTile.Facility = facility.Type;
+
+                                if (facility.BuildTime.HasValue)
+                                {
+                                    baseTile.ForeColor = System.Drawing.Color.Yellow;
+                                    var font = new Font(FontFamily.GenericSerif, 25, FontStyle.Bold);
+                                    baseTile.Font = font;
+                                    baseTile.Text = facility.BuildTime.ToString();
+                                }
+
+                                if (facility.Type == "STR_HANGAR") // Hangars take up 4 tiles
+                                    placeHangars(baseTile.X, baseTile.Y);
+                            }
                         }
                     }
                 }
@@ -110,13 +120,17 @@ namespace OpenXComEdit
 
             loadControls();
             Controls.Add(token);
-            
-            rtbInstructions.Text = "WARNING - EDIT BASE FACILITIES AT YOUR OWN RISK! " + 
-                                   "ALWAYS HAVE ONLY ONE ACCESS LIFT! HANGERS TAKE 4 TILES." + 
-                                   "Right click to clear " +
-                                   "a tile (make it dirt). Select a facility in the drop down " +
-                                   "and drag the tile beneath it to the desired spot and drop it.";
 
+            rtbInstructions.Text = "WARNING - EDIT BASE FACILITIES AT YOUR OWN RISK!\n\n" +
+                                   "Right click a tile to make it dirt.\n\n" +
+                                   "To place a facility select the facility in the drop down " +
+                                   "and a tile will appear beneath it then drag this tile to the desired spot and drop it.\n\n" +
+                                   "Click the 'Save Changes' button below to write your changes to memory.\n\n" +
+                                   "Don't forget to use File/Save to write changes to disk.\n\n" +
+                                   "FYI - save any changes before switching bases.\n\n" +
+                                   "Enjoy!";
+
+            // Designer kept deleting these so I moved them here
             btn00.HangarPlaced += new EventHandler(hangarPlaced);
             btn01.HangarPlaced += new EventHandler(hangarPlaced);
             btn02.HangarPlaced += new EventHandler(hangarPlaced);
@@ -162,7 +176,7 @@ namespace OpenXComEdit
             placeHangars(x, y);
         }
 
-        private void placeHangars(int x, int y)
+        private void placeHangars(int? x, int? y)
         {
             foreach (var control in Controls)
             {
@@ -222,12 +236,11 @@ namespace OpenXComEdit
                 var baseTile = (BaseTile) control;
                 var facility = new Lib.Facility();
 
-                if (!String.IsNullOrEmpty(baseTile.Facility))
+                if (!String.IsNullOrEmpty(baseTile.Facility)) // weed out dirt tiles
                 {
-                    //MessageBox.Show($"{baseTile.Facility} {baseTile.X} {baseTile.Y}");
                     facility.Type = baseTile.Facility;
-                    facility.X = baseTile.X;
-                    facility.Y = baseTile.Y;
+                    facility.X = baseTile.X ?? default;
+                    facility.Y = baseTile.Y ?? default;
                     facilities.Add(facility);
                 }
             }
@@ -248,8 +261,8 @@ namespace OpenXComEdit
                 set { _facility = _FacilityChanged(value); }
             }
 
-            public int X { get; set; }
-            public int Y { get; set; }
+            public int? X { get; set; }
+            public int? Y { get; set; }
 
             public event EventHandler HangarPlaced;
 
@@ -334,7 +347,14 @@ namespace OpenXComEdit
             // .Net is being so... "extra"...today SMH
             private void _MouseUp(object sender, MouseEventArgs e)
             {
-                if (e.Button == MouseButtons.Right) Facility = "";
+                if (e.Button == MouseButtons.Right)
+                {
+                    Facility = "";
+                    Text = "";
+                    Font = null;
+                    ForeColor = Color.Black;
+                }
+
             }
 
             private void _DragDrop(object sender, DragEventArgs e)
