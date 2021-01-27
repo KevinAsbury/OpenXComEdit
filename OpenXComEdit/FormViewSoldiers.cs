@@ -22,9 +22,11 @@ namespace OpenXComEdit
 
         private void FormViewSoldiers_Load(object sender, EventArgs e)
         {
+            cmbBase.Visible = true;
+            cmbBase.Enabled = true;
+            lblBase.Visible = true;
             cmbBase.DataSource = State.SaveFile.Bases;
             cmbBase.DisplayMember = "Name";
-
             loadLb();
         }
 

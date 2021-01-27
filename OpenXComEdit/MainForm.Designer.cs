@@ -40,6 +40,8 @@ namespace OpenXComEdit
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiBases = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSoldiers = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSoldierBases = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSoldierMission = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiViewSave = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdSaveFile = new System.Windows.Forms.OpenFileDialog();
             this.mainMenuStrip.SuspendLayout();
@@ -127,10 +129,26 @@ namespace OpenXComEdit
             // 
             // tsmiSoldiers
             // 
+            this.tsmiSoldiers.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSoldierBases,
+            this.tsmiSoldierMission});
             this.tsmiSoldiers.Name = "tsmiSoldiers";
             this.tsmiSoldiers.Size = new System.Drawing.Size(174, 52);
             this.tsmiSoldiers.Text = "&Soldiers";
-            this.tsmiSoldiers.Click += new System.EventHandler(this.tsmiSoldiers_Click);
+            // 
+            // tsmiSoldierBases
+            // 
+            this.tsmiSoldierBases.Name = "tsmiSoldierBases";
+            this.tsmiSoldierBases.Size = new System.Drawing.Size(542, 66);
+            this.tsmiSoldierBases.Text = "On Bases";
+            this.tsmiSoldierBases.Click += new System.EventHandler(this.tsmiSoldierBases_Click);
+            // 
+            // tsmiSoldierMission
+            // 
+            this.tsmiSoldierMission.Name = "tsmiSoldierMission";
+            this.tsmiSoldierMission.Size = new System.Drawing.Size(542, 66);
+            this.tsmiSoldierMission.Text = "On Mission";
+            this.tsmiSoldierMission.Click += new System.EventHandler(this.tsmiSoldierMission_Click);
             // 
             // tsmiViewSave
             // 
@@ -177,5 +195,7 @@ namespace OpenXComEdit
         private System.Windows.Forms.ToolStripMenuItem tsmiOpen;
         private System.Windows.Forms.OpenFileDialog ofdSaveFile;
         private System.Windows.Forms.ToolStripMenuItem tsmiSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSoldierBases;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSoldierMission;
     }
 }

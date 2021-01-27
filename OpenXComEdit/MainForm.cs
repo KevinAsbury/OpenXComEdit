@@ -130,16 +130,22 @@ namespace OpenXComEdit
             frmViewBases.Show();
         }
 
-        private void tsmiSoldiers_Click(object sender, EventArgs e)
+        private void tsmiViewSave_Click(object sender, EventArgs e)
+        {
+            var frmViewSave = new FormViewSave();
+            frmViewSave.Show();
+        }
+
+        private void tsmiSoldierBases_Click(object sender, EventArgs e)
         {
             var frmViewSoldiers = new FormViewSoldiers();
             frmViewSoldiers.Show();
         }
 
-        private void tsmiViewSave_Click(object sender, EventArgs e)
+        private void tsmiSoldierMission_Click(object sender, EventArgs e)
         {
-            var frmViewSave = new FormViewSave();
-            frmViewSave.Show();
+            var frmViewMission = new FormViewMission();
+            frmViewMission.Show();
         }
     }
 }

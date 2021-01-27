@@ -33,7 +33,7 @@ namespace OpenXComEdit
             this.pgSoldiers = new System.Windows.Forms.PropertyGrid();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.cmbBase = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBase = new System.Windows.Forms.Label();
             this.btnMaxAll = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnHealAll = new System.Windows.Forms.Button();
@@ -91,14 +91,14 @@ namespace OpenXComEdit
             this.cmbBase.TabIndex = 3;
             this.cmbBase.SelectedIndexChanged += new System.EventHandler(this.cmbBase_SelectedIndexChanged);
             // 
-            // label1
+            // lblBase
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 48);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Base:";
+            this.lblBase.AutoSize = true;
+            this.lblBase.Location = new System.Drawing.Point(36, 55);
+            this.lblBase.Name = "lblBase";
+            this.lblBase.Size = new System.Drawing.Size(101, 48);
+            this.lblBase.TabIndex = 4;
+            this.lblBase.Text = "Base:";
             // 
             // btnMaxAll
             // 
@@ -138,7 +138,7 @@ namespace OpenXComEdit
             this.Controls.Add(this.btnHealAll);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnMaxAll);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblBase);
             this.Controls.Add(this.cmbBase);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormViewSoldiers";
@@ -160,7 +160,7 @@ namespace OpenXComEdit
         private System.Windows.Forms.PropertyGrid pgSoldiers;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ComboBox cmbBase;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBase;
         private System.Windows.Forms.Button btnMaxAll;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnHealAll;
