@@ -139,14 +139,14 @@ namespace OpenXComEdit
             // tsmiSoldierBases
             // 
             this.tsmiSoldierBases.Name = "tsmiSoldierBases";
-            this.tsmiSoldierBases.Size = new System.Drawing.Size(542, 66);
+            this.tsmiSoldierBases.Size = new System.Drawing.Size(396, 66);
             this.tsmiSoldierBases.Text = "On Bases";
             this.tsmiSoldierBases.Click += new System.EventHandler(this.tsmiSoldierBases_Click);
             // 
             // tsmiSoldierMission
             // 
             this.tsmiSoldierMission.Name = "tsmiSoldierMission";
-            this.tsmiSoldierMission.Size = new System.Drawing.Size(542, 66);
+            this.tsmiSoldierMission.Size = new System.Drawing.Size(396, 66);
             this.tsmiSoldierMission.Text = "On Mission";
             this.tsmiSoldierMission.Click += new System.EventHandler(this.tsmiSoldierMission_Click);
             // 
@@ -171,7 +171,8 @@ namespace OpenXComEdit
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.ShowIcon = false;
+            this.Text = "OpenXcom Save Editor";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
