@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using OpenXComEdit.Lib;
 
 namespace OpenXComEdit
 {
@@ -47,30 +40,48 @@ namespace OpenXComEdit
             loadLb();
         }
 
+        private void btnMaxAll_Click(object sender, EventArgs e)
+        {
+            foreach (var b in State.SaveFile.Bases)
+            foreach (var soldier in b.Soldiers)
+            {
+                soldier.MaxAll();
+            }
+        }
+
+        private void btnHealAll_Click(object sender, EventArgs e)
+        {
+            foreach (var b in State.SaveFile.Bases)
+            foreach (var soldier in b.Soldiers)
+            {
+                soldier.Recovery = null;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        { 
+            var edit = (Soldier)pgSoldiers.SelectedObject;
+
+            if (edit != null)
+                State.SaveFile.Bases[selectedBase].Soldiers[selectedSoldier].Edit(
+                    edit.Name, edit.Rank, edit.Gender, edit.Look, edit.Recovery,
+                    edit.Tu, edit.Stamina, edit.Health, edit.Bravery, edit.Reactions,
+                    edit.Firing, edit.Throwing, edit.Strength, edit.PsiStrength,
+                    edit.PsiSkill, edit.Melee);
+        }
+
         private class Soldier
         {
             [CategoryAttribute("Information"), DescriptionAttribute("Name")]
             public string Name { get; set; }
-            [CategoryAttribute("Information"), DescriptionAttribute("ID")]
-            public int Id { get; set; }
             [CategoryAttribute("Information"), DescriptionAttribute("Rank")]
             public int Rank { get; set; }
             [CategoryAttribute("Information"), DescriptionAttribute("Gender")]
             public int Gender { get; set; }
             [CategoryAttribute("Information"), DescriptionAttribute("Look")]
             public int Look { get; set; }
-            [CategoryAttribute("Information"), DescriptionAttribute("Mission count")]
-            public int Missions { get; set; }
-            [CategoryAttribute("Information"), DescriptionAttribute("Kill count")]
-            public int Kills { get; set; }
             [CategoryAttribute("Information"), DescriptionAttribute("Days recovery")]
             public int? Recovery { get; set; }
-            [CategoryAttribute("Information"), DescriptionAttribute("Armor")]
-            public string Armor { get; set; }
-            [CategoryAttribute("Information"), DescriptionAttribute("Improvement")]
-            public int Improvement { get; set; }
-            [CategoryAttribute("Information"), DescriptionAttribute("Psi Strength Improvement")]
-            public int PsiStrImprovement { get; set; }
             [CategoryAttribute("Stats"), DescriptionAttribute("Time Units")]
             public int Tu { get; set; }
             [CategoryAttribute("Stats"), DescriptionAttribute("Stamina")]
@@ -93,22 +104,14 @@ namespace OpenXComEdit
             public int PsiSkill { get; set; }
             [CategoryAttribute("Stats"), DescriptionAttribute("Melee Accuracy")]
             public int Melee { get; set; }
-            [CategoryAttribute("Equipment"), DescriptionAttribute("Equipment Layout")]
-            public List<Equipment>? EquipmentLayout { get; set; }
 
             public Soldier(Lib.Soldier soldier)
             {
                 Name = soldier.Name;
-                Id = soldier.Id;
                 Rank = soldier.Rank;
                 Gender = soldier.Gender;
                 Look = soldier.Look;
-                Missions = soldier.Missions;
-                Kills = soldier.Kills;
                 Recovery = soldier.Recovery;
-                Armor = soldier.Armor;
-                Improvement = soldier.Improvement;
-                PsiStrImprovement = soldier.PsiStrImprovement;
                 Tu = soldier.CurrentStats.Tu;
                 Stamina = soldier.CurrentStats.Stamina;
                 Health = soldier.CurrentStats.Health;
@@ -120,9 +123,7 @@ namespace OpenXComEdit
                 PsiStrength = soldier.CurrentStats.PsiStrength;
                 PsiSkill = soldier.CurrentStats.PsiSkill;
                 Melee = soldier.CurrentStats.Melee;
-                EquipmentLayout = soldier.EquipmentLayout;
             }
-
         }
     }
 }

@@ -34,6 +34,9 @@ namespace OpenXComEdit
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.cmbBase = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnMaxAll = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnHealAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -97,11 +100,44 @@ namespace OpenXComEdit
             this.label1.TabIndex = 4;
             this.label1.Text = "Base:";
             // 
+            // btnMaxAll
+            // 
+            this.btnMaxAll.Location = new System.Drawing.Point(984, 42);
+            this.btnMaxAll.Name = "btnMaxAll";
+            this.btnMaxAll.Size = new System.Drawing.Size(225, 69);
+            this.btnMaxAll.TabIndex = 5;
+            this.btnMaxAll.Text = "Max All";
+            this.btnMaxAll.UseVisualStyleBackColor = true;
+            this.btnMaxAll.Click += new System.EventHandler(this.btnMaxAll_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(1227, 42);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(225, 69);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnHealAll
+            // 
+            this.btnHealAll.Location = new System.Drawing.Point(741, 42);
+            this.btnHealAll.Name = "btnHealAll";
+            this.btnHealAll.Size = new System.Drawing.Size(225, 69);
+            this.btnHealAll.TabIndex = 7;
+            this.btnHealAll.Text = "Heal All";
+            this.btnHealAll.UseVisualStyleBackColor = true;
+            this.btnHealAll.Click += new System.EventHandler(this.btnHealAll_Click);
+            // 
             // FormViewSoldiers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1464, 1324);
+            this.Controls.Add(this.btnHealAll);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnMaxAll);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBase);
             this.Controls.Add(this.splitContainer1);
@@ -125,5 +161,8 @@ namespace OpenXComEdit
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ComboBox cmbBase;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnMaxAll;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnHealAll;
     }
 }

@@ -98,5 +98,43 @@ namespace OpenXComEdit.Lib
         {
             Craft = new SoldierCraft(lat, lon, type, id);
         }
+
+        public void Edit(string name, int rank, int gender, int look, int? recovery, 
+            int tu, int stamina, int health, int bravery, int reactions, int firing, 
+            int throwing, int strength, int psiStrength, int psiSkill, int melee)
+        {
+            Name = name;
+            Rank = rank;
+            Gender = gender;
+            Look = look;
+            Recovery = recovery;
+            CurrentStats.Tu = tu;
+            CurrentStats.Stamina = stamina;
+            CurrentStats.Health = health;
+            CurrentStats.Bravery = bravery;
+            CurrentStats.Reactions = reactions;
+            CurrentStats.Firing = firing;
+            CurrentStats.Throwing = throwing;
+            CurrentStats.Strength = strength;
+            CurrentStats.PsiStrength = psiStrength;
+            CurrentStats.PsiSkill = psiSkill;
+            CurrentStats.Melee = melee;
+        }
+
+        public void MaxAll()
+        {
+            Recovery = 0;
+            CurrentStats.Tu = 81;
+            CurrentStats.Stamina = 101;
+            CurrentStats.Health = 61;
+            CurrentStats.Bravery = 100;
+            CurrentStats.Reactions = 105;
+            CurrentStats.Firing = 125;
+            CurrentStats.Throwing = 125;
+            CurrentStats.Strength = 71;
+            CurrentStats.PsiStrength = 100;
+            CurrentStats.PsiSkill = 105;
+            CurrentStats.Melee = 125;
+        }
     }
 }
