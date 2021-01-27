@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenXComEdit.Lib;
 using YamlDotNet.Serialization;
@@ -26,6 +19,14 @@ namespace OpenXComEdit
         private void MainForm_Load(object sender, EventArgs e)
         {
             enableMenuItems(false);
+
+            if (string.IsNullOrEmpty(State.Settings.OpenXcomPath) ||
+                string.IsNullOrEmpty(State.Settings.SavePath))
+            {
+                var frmDirectories = new FormDirectories();
+                frmDirectories.Show();
+                MessageBox.Show("Please select game and save directories.");
+            }
         }
 
         private void enableMenuItems(bool value)
@@ -42,12 +43,19 @@ namespace OpenXComEdit
             if (!State.LoadedSave)
                 return;
 
-            var path = State.Settings.SavePath +
-                       Path.DirectorySeparatorChar + "xcom1" +
-                       Path.DirectorySeparatorChar +
-                       State.SaveFile.Name + ".sav";
+            if (string.IsNullOrEmpty(State.Settings.OpenXcomPath) ||
+                string.IsNullOrEmpty(State.Settings.SavePath))
+            {
+                MessageBox.Show("Please select game and save directories.");
+                return;
+            }
 
-            if(!saveAs)
+            var path = State.Settings.SavePath +
+                           Path.DirectorySeparatorChar + "xcom1" +
+                           Path.DirectorySeparatorChar +
+                           State.SaveFile.Name + ".sav";
+
+            if(!saveAs && File.Exists(path))
                 File.Move(path, path + ".bac");
 
             var serializer = new SerializerBuilder()

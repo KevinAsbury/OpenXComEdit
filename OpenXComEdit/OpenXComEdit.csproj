@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -7,7 +7,7 @@
 	<Nullable>disable</Nullable>
 	<LangVersion>8.0</LangVersion>
 	<Platforms>AnyCPU;x64</Platforms>
-	<NoWarn>8618</NoWarn>
+	<NoWarn>8632</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -19,7 +19,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.2" />
     <PackageReference Include="YamlDotNet" Version="9.1.4" />
   </ItemGroup>
 
