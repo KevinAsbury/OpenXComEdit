@@ -12,6 +12,10 @@ Farther down line I will add the ability to edit OpenXcom TFTD save files as wel
 
 Check it out in the releases section or build it yourself!
 
+# Screenshot
+
+![screenshot](https://github.com/KevinAsbury/OpenXComEdit/blob/main/Screenshot.png?raw=true)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
